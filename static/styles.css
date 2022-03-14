@@ -7,8 +7,8 @@
 body {
     font-family: "Montserrat", Helvetica, sans-serif;
     font-size: 16px;
-    background-color: #042c3b;
-    color: #d4d4d4;
+    background-color: white;
+    color: #525352;
     line-height: 1.735;
     font-weight: 300;
     font-variation-settings: "wght" 300;
@@ -18,12 +18,9 @@ body {
     text-transform: none;
 }
 
-.form {
-    
-}
-
 h1, h2, h3 {
     color: #ed5623;
+    background-color: #042c3b;
 }
 
 h1 {
