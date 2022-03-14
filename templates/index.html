@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<form action="/" method="POST">
+<form action="/" method="POST" class="form">
     <div class="dropdown">
         <label for="drop">Choose Urban Area 1:</label><br>
         {% if error %}
@@ -41,7 +41,7 @@
         <input type="checkbox" id="city_list" name="ua_data" value="cities">
         <label for="city_list">Cities within Urban Area</label><br>
 
-        <input type="submit" id="submit" class="submit" value="Submit"><br>
+        <input type="submit" id="submit" class="btn" value="Submit"><br>
     </div>
 </form>
 {% endblock %}
