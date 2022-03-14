@@ -33,6 +33,7 @@ def display_uadata():
         area1 = request.args['area1']
         area2 = request.args['area2']
         data_points = request.args.getlist('data_points')
+        print(data_points)
 
         area1_url = f"https://api.teleport.org/api/urban_areas/slug:{area1.lower()}/"
         area2_url = f"https://api.teleport.org/api/urban_areas/slug:{area2.lower()}/"
