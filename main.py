@@ -13,7 +13,6 @@ def index():
     uas_list = []
     for area in range(len(urban_areas)):
         uas_list.append(urban_areas[area]['name'])
-    print(uas_list)
     
     if request.method == 'POST':
         area1 = request.form['area1'].replace(" ", "-")
@@ -49,6 +48,13 @@ def display_uadata():
         for city in cities2_list:
             area2_city_list.append(city['name'])
 
+        area1_pix_url = f"{area1_url}images/"
+        area2_pix_url = f"{area2_url}images/"
+        area1_pix_web = requests.get(area1_pix_url).json()['photos'][0]['image']['web']
+        area2_pix_web = requests.get(area2_pix_url).json()['photos'][0]['image']['web']
+        area1_pix_mobile = requests.get(area1_pix_url).json()['photos'][0]['image']['mobile']
+        area2_pix_mobile = requests.get(area2_pix_url).json()['photos'][0]['image']['mobile']
+
         details = f"{area1_url}details/"
         details2 = f"{area2_url}details/"
         details_json = requests.get(details).json()['categories']
@@ -72,6 +78,8 @@ def display_uadata():
         
     return render_template('uadata.html', area1=area1, area2=area2,
         area1_city_list=area1_city_list, area2_city_list=area2_city_list,
+        area1_pix_web=area1_pix_web, area2_pix_web=area2_pix_web,
+        area1_pix_mobile=area1_pix_mobile, area2_pix_mobile=area2_pix_mobile,
         area1_pop_size=area1_pop_size, area2_pop_size=area2_pop_size,
         area1_pop_size_label=area1_pop_size_label, area2_pop_size_label=area2_pop_size_label,
         area1_life_exp=area1_life_exp, area2_life_exp=area2_life_exp,
