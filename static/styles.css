@@ -4,6 +4,31 @@
     }
   }
 
+body {
+    font-family: "Montserrat", Helvetica, sans-serif;
+    font-size: 16px;
+    background-color: #042c3b;
+    color: #d4d4d4;
+    line-height: 1.735;
+    font-weight: 300;
+    font-variation-settings: "wght" 300;
+    font-style: normal;
+    letter-spacing: .05em;
+    text-decoration: none;
+    text-transform: none;
+}
+
+.form {
+    
+}
+
+h1, h2, h3 {
+    color: #ed5623;
+}
+
+h1 {
+    text-align: center;
+}
 .main-content {
     display: flex;
 }
@@ -14,4 +39,25 @@
 
 .cities {
     display:inline-table;
+}
+.btn {
+    background-color: #ed5623;
+    border-radius: 24px;
+    cursor: pointer;
+    color: #fff;
+    font-size: .8em;
+    font-weight: 600;
+    font-variation-settings: "wght" 600;
+    padding: .6em 1.2em;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    display: inline-block;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    border: 2px solid #ed5623;
+    -webkit-transition: background-color .2s ease-in-out,border .2s ease-in-out;
+    transition: background-color .2s ease-in-out,border .2s ease-in-out;
+    margin: .5em .5em .5em 0;
 }

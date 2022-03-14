@@ -69,7 +69,7 @@ def display_uadata():
         area2_life_exp = details2_json[7]['data'][1]['float_value']
 
         area1_elevation = details_json[14]['data'][0]['float_value']
-        area2_elevation = details2_json[16]['data'][0]['float_value']
+        area2_elevation = details2_json[14]['data'][0]['float_value']
 
         area1_crime_rate = details_json[16]['data'][0]['float_value']
         area2_crime_rate = details2_json[16]['data'][0]['float_value']
