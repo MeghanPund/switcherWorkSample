@@ -3,20 +3,17 @@ import requests
 
 app = Flask(__name__)
 
-# global vars
-urban_areas_url = "https://api.teleport.org/api/urban_areas/"
-response = requests.get(urban_areas_url)
-json_data = response.json()
-urban_areas = json_data['_links']['ua:item']
-
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
+    urban_areas_url = "https://api.teleport.org/api/urban_areas/"
+    response = requests.get(urban_areas_url)
+    json_data = response.json()
+    urban_areas = json_data['_links']['ua:item']
     uas_list = []
     for area in range(len(urban_areas)):
         uas_list.append(urban_areas[area]['name'])
     
-    error = None
     if request.method == 'POST':
         area1 = request.form['area1']
         area2 = request.form['area2'].replace(" ", "-")
@@ -24,16 +21,14 @@ def index():
         data_points = request.form.getlist("ua_data")
 
         return redirect(url_for('display_uadata', area1=area1, area2=area2,
-        data_points=data_points, error=error))
+        data_points=data_points))
     
     return render_template('index.html', uas_list=uas_list)
 
 
 @app.route('/uadata', methods=['POST', 'GET'])
 def display_uadata():
-    if request.method == 'POST':
-        pass
-    elif request.method == 'GET':
+    if request.method == 'GET':
         area1 = request.args['area1']
         area2 = request.args['area2']
         data_points = request.args.getlist('data_points')
@@ -70,7 +65,8 @@ def display_uadata():
 
         area1_crime_rate = details_json[16]['data'][0]['float_value']
         area2_crime_rate = details2_json[16]['data'][0]['float_value']
-    
+    elif request.method == 'GET':
+        pass    
         
     return render_template('uadata.html', area1=area1, area2=area2,
         area1_city_list=area1_city_list, area2_city_list=area2_city_list,
