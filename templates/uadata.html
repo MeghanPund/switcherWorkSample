@@ -3,12 +3,91 @@
 {% block content %}
 <div class ="main-content">
     <div class="area1-content">
-        <h2>{{ area1 }}</h2><br>
+        <h2>{{ area1 }}</h2>
+        {% if 'cities' in data_points %}
+        <div class="cities">
+            <h3>Cities within the {{ area1 }} urban area:</h3>
+            <ul>
+                {% for city in area1_city_list %}
+                <li>{{ city }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        {% if 'population' in data_points %}
+        <div class="population">
+            <h3>Population:</h3>
+            <p>{{ area1_pop_size }}</p>
+            <p>{{ area1_pop_size_label }}</p>
+        </div>
+        {% endif %}
+
+        {% if 'life_expectancy' in data_points %}
+        <div class="life_expectancy">
+            <h3>Life Expectancy:</h3>
+            <p>{{ area1_life_exp }}</p>
+        </div>
+        {% endif %}
+
+        {% if 'elevation' in data_points %}
+        <div class="elevation">
+            <h3>Elevation (at urban area center):</h3>
+            <p>{{ area1_elevation }}</p>
+        </div>
+        {% endif %}
+
+        {% if 'crime' in data_points %}
+        <div class="crime">
+            <h3>Crime (Teleport API rating):</h3>
+            <p>{{ area1_crime_rate }}</p>
+        </div>
+        {% endif %}
+
     </div>
     <div class="area2-content">
-        <h2>{{ area2 }}</h2><br>
+        <h2>{{ area2 }}</h2>
+        {% if 'cities' in data_points %}
+        <div class="cities">
+            <h3>Cities within the {{ area2 }} urban area:</h3>
+            <ul>
+                {% for city in area2_city_list %}
+                <li>{{ city }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        {% if 'population' in data_points %}
+        <div class="population">
+            <h3>Population:</h3>
+            <p>{{ area2_pop_size }}</p>
+            <p>{{ area2_pop_size_label }}</p>
+        </div>
+        {% endif %}
+
+        {% if 'life_expectancy' in data_points %}
+        <div class="life_expectancy">
+            <h3>Life Expectancy:</h3>
+            <p>{{ area2_life_exp }}</p>
+        </div>
+        {% endif %}
+
+        {% if 'elevation' in data_points %}
+        <div class="elevation">
+            <h3>Elevation (at urban area center):</h3>
+            <p>{{ area2_elevation }}</p>
+        </div>
+        {% endif %}
+        
+        {% if 'crime' in data_points %}
+        <div class="crime">
+            <h3>Crime (Teleport API rating):</h3>
+            <p>{{ area1_crime_rate }}</p>
+        </div>
+        {% endif %}
+
     </div>
-    <p>{{ data_points }}</p>
 </div>
 <div class= "home">
     <a href="/"><button class=home>Home</button></a>
