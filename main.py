@@ -13,9 +13,10 @@ def index():
     uas_list = []
     for area in range(len(urban_areas)):
         uas_list.append(urban_areas[area]['name'])
+    print(uas_list)
     
     if request.method == 'POST':
-        area1 = request.form['area1']
+        area1 = request.form['area1'].replace(" ", "-")
         area2 = request.form['area2'].replace(" ", "-")
         
         data_points = request.form.getlist("ua_data")
