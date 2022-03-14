@@ -1,0 +1,17 @@
+@media screen and (max-width: 600px) {
+    .area-content {
+      width: 100%;
+    }
+  }
+
+.main-content {
+    display: flex;
+}
+
+.area-content {
+    flex: 50%;
+}
+
+.cities {
+    display:inline-table;
+}
