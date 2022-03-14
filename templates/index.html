@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<form action="/" method="POST">
+    <div class="dropdown">
+        <label for="drop">Choose Urban Area 1:</label><br>
+        {% if error %}
+        <p class="error"><strong>Error: </strong>{{ error }}</p><br>
+        {% endif %}
+        <select name="area1"> 
+            {% for area in uas_list %}
+            <option value={{ area }}>{{ area }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="dropdown2">
+        <label for="drop2">Choose Urban Area 2:</label><br>
+        <select name="area2"> 
+            {% for area in uas_list %}
+            <option value={{ area }}>{{ area }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="datapoints">
+        <h3>Select some data points for comparison.</h3>
+
+        <input type="checkbox" id="city_list" name="ua_data" value="cities">
+        <label for="city_list">Cities within Urban Area</label><br>
+
+        <input type="checkbox" id="population_size" name="ua_data" value="population">
+        <label for="population_size">Population of Urban Area</label><br>
+
+        <input type="checkbox" id="life_expectancy" name="ua_data" value="life_expectancy">
+        <label for="life_expectancy">Life Expectancy of Urban Area</label><br>
+
+        <input type="checkbox" id="elevation" name="ua_data" value="elevation">
+        <label for="elevation">Elevation of Urban Area</label><br>
+
+        <input type="checkbox" id="crime_rate" name="ua_data" value="crime">
+        <label for="crime_rate">Crime Rate of Urban Area</label><br>
+
+        <input type="submit" id="submit" class="submit" value="Submit"><br>
+    </div>
+</form>
+{% endblock %}
