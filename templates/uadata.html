@@ -4,16 +4,6 @@
 <div class ="main-content">
     <div class="area-content">
         <h2>{{ area1 }}</h2>
-        {% if 'cities' in data_points %}
-        <div class="cities">
-            <h3>Cities within the {{ area1 }} urban area:</h3>
-            <ul>
-                {% for city in area1_city_list %}
-                <li>{{ city }}</li>
-                {% endfor %}
-            </ul>
-        </div>
-        {% endif %}
 
         {% if 'population' in data_points %}
         <div class="population">
@@ -44,19 +34,20 @@
         </div>
         {% endif %}
 
-    </div>
-    <div class="area-content">
-        <h2>{{ area2 }}</h2>
         {% if 'cities' in data_points %}
         <div class="cities">
-            <h3>Cities within the {{ area2 }} urban area:</h3>
+            <h3>Cities within the {{ area1 }} urban area:</h3>
             <ul>
-                {% for city in area2_city_list %}
+                {% for city in area1_city_list %}
                 <li>{{ city }}</li>
                 {% endfor %}
             </ul>
         </div>
         {% endif %}
+
+    </div>
+    <div class="area-content">
+        <h2>{{ area2 }}</h2>
 
         {% if 'population' in data_points %}
         <div class="population">
@@ -87,6 +78,16 @@
         </div>
         {% endif %}
 
+        {% if 'cities' in data_points %}
+        <div class="cities">
+            <h3>Cities within the {{ area2 }} urban area:</h3>
+            <ul>
+                {% for city in area2_city_list %}
+                <li>{{ city }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
     </div>
 </div>
 <div class= "home">
