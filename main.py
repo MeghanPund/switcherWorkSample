@@ -1,7 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for
+import json
 import requests
 
 app = Flask(__name__)
+database = "mappedNames.json"
+data = json.loads(open(database).read())
 
 
 @app.route('/', methods=['POST', 'GET'])
@@ -15,8 +18,10 @@ def index():
         uas_list.append(urban_areas[area]['name'])
     
     if request.method == 'POST':
-        area1 = request.form['area1'].replace(" ", "-")
-        area2 = request.form['area2'].replace(" ", "-")
+        area1 = request.form['area1']
+        print(area1)
+        area2 = request.form['area2']
+        print(area2)
         
         data_points = request.form.getlist("ua_data")
 
@@ -29,13 +34,15 @@ def index():
 @app.route('/uadata', methods=['POST', 'GET'])
 def display_uadata():
     if request.method == 'GET':
-        area1 = request.args['area1']
-        area2 = request.args['area2']
+        area1name = request.args['area1']
+        area1 = data[area1name]
+        area2name = request.args['area2']
+        area2 = data[area2name]
         data_points = request.args.getlist('data_points')
         print(data_points)
 
-        area1_url = f"https://api.teleport.org/api/urban_areas/slug:{area1.lower()}/"
-        area2_url = f"https://api.teleport.org/api/urban_areas/slug:{area2.lower()}/"
+        area1_url = f"https://api.teleport.org/api/urban_areas/slug:{area1}/"
+        area2_url = f"https://api.teleport.org/api/urban_areas/slug:{area2}/"
 
         cities = f"{area1_url}cities/"
         cities2 = f"{area2_url}cities/"
@@ -76,7 +83,8 @@ def display_uadata():
     elif request.method == 'GET':
         pass    
         
-    return render_template('uadata.html', area1=area1, area2=area2,
+    return render_template('uadata.html', area1name= area1name, area2name=area2name,
+        area1=area1, area2=area2,
         area1_city_list=area1_city_list, area2_city_list=area2_city_list,
         area1_pix_web=area1_pix_web, area2_pix_web=area2_pix_web,
         area1_pix_mobile=area1_pix_mobile, area2_pix_mobile=area2_pix_mobile,
