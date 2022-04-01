@@ -18,14 +18,14 @@ Use whatever technology you are most comfortable with to complete this task. Try
 
 ## To Run My Program
 1. Create a virtual environment
-CD to current directory
-if on Windows: `py -3 -m venv venv`
-if on mac/linux: `python3 -m venv venv`
+- CD to current directory
+- if on Windows: `py -3 -m venv venv`
+- if on mac/linux: `python3 -m venv venv`
 2. Activate the environment
-Windows: `venv\Scripts\activate`
-mac/linux: `. venv/bin/activate`
+- Windows: `venv\Scripts\activate`
+- mac/linux: `. venv/bin/activate`
 3. pip install flask 
-inside the venv, enter into the command prompt: `pip install flask`
+- inside the venv, enter into the command prompt: `pip install flask`
 4. pip install requests 
-inside the venv, enter into the command prompt: `pip install requests`
+- inside the venv, enter into the command prompt: `pip install requests`
 5. Run the program!: inside the venv, enter into the command prompt: `python main.py`
