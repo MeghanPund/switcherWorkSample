@@ -28,4 +28,15 @@ Use whatever technology you are most comfortable with to complete this task. Try
 - inside the venv, enter into the command prompt: `pip install flask`
 4. pip install requests 
 - inside the venv, enter into the command prompt: `pip install requests`
-5. Run the program!: inside the venv, enter into the command prompt: `python main.py`
+5. Run the program!
+- inside the venv, enter into the command prompt: `python main.py`
+
+## Requirements Fulfilled
+1. User should be able to select two urban areas from the Teleport API to compare.
+- dropdown menus of all Urban Areas presented on home page
+
+2. Once two urban areas are selected, present the user with a comparison of the urban areas.
+- Side by side comparison of UAs and their data points on uadata page
+
+3. Choose at least 5 data points to compare and display those.
+- cities within Urban Areas, population sizes, life expectancies, elevations, crime rates
